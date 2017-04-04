@@ -1,6 +1,5 @@
 var areaVisual = document.getElementById("areaVisual");
-var areaVisual2 = document .getElementById("areaVisual2");
-
+var areaVisual2 = document.getElementById("areaVisual2");
 
 var textarea = document.createElement("textarea");
 textarea.id = "areaTweet";
@@ -22,7 +21,7 @@ areaVisual.appendChild(input);
 var boton = document.createElement("button");
 boton.type = "submit";
 boton.innerText = "Enviar"
-boton.onclick = "agregarTweet(event);"
+boton.addEventListener("click", agregarTweet);
 areaVisual.appendChild(boton);
 
 var division = document.createElement("hr");
@@ -32,24 +31,23 @@ var subtitulo = document.createElement("h3");
 subtitulo.innerText = "Tweets";
 areaVisual2.appendChild(subtitulo);
 
+
 function agregarTweet() {
    event.preventDefault();
    var tweet = document.getElementById("areaTweet").value;
    var personaEscribio = document.getElementById("personaTweet").value;
    var articulo = document.createElement("article");
    var espacioTweet = document.createElement("p");
-   var de = document.createElement("p");
+   var escritoPor = document.createElement("p");
    var personaTweet = document.createElement("span");
 
-
-    de.innerHTML = "De:";
+    escritoPor.innerHTML = "De:";
     espacioTweet.innerHTML = tweet;
     personaTweet.innerHTML = personaEscribio;
 
-    de.appendChild(personaTweet);
-    de.style.fontSize = "12px";
+    escritoPor.appendChild(personaTweet);
     articulo.appendChild(espacioTweet);
-    articulo.appendChild(de);
+    articulo.appendChild(escritoPor);
 
     areaVisual2.appendChild(articulo);
 }
